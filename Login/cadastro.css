@@ -1,0 +1,123 @@
+/* Centraliza tudo na tela */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Estiliza o container do login */
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 320px;
+}
+
+/* Estiliza o título */
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center; /* Alinha o texto e a logo verticalmente */
+    font-size: 24px;
+}
+
+/* Ajuste da logo */
+h2 img {
+    height: 40px; /* Ajusta a altura da logo */
+    margin-right: 10px; /* Espaço entre a logo e o texto */
+}
+
+/* Centraliza os inputs corretamente */
+input {
+    width: 90%; /* Reduzindo um pouco para evitar esticamento */
+    max-width: 250px; /* Mantendo uma largura fixa proporcional */
+    padding: 10px;
+    margin: 10px auto; /* Centraliza horizontalmente */
+    display: block; /* Garante que ele fique como um bloco */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center; /* Mantém o texto alinhado */
+    color: #333; /* Cor do texto dos campos */
+}
+
+/* Estiliza o campo de seleção de papel (role) */
+.role-selection {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.role-selection select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #333; /* Cor do texto do select */
+}
+
+/* Estiliza os botões */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Botão de Confirmar Cadastro com efeito de inclinação */
+.btn-entrar {
+    background-color: #f0efef;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transform: rotateY(-10deg); /* Inclinação inicial */
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+}
+
+/* Efeito ao passar o mouse no botão Confirmar Cadastro */
+.btn-entrar:hover {
+    background-color: #000000;
+    color: white;
+}
+
+/* Mini texto acima do botão de cadastro */
+.texto-cadastro {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Estiliza os links */
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Estiliza o link de Esqueci minha senha */
+.links a {
+    color: #007bff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Efeito ao passar o mouse nos links */
+.links a:hover {
+    text-decoration: underline;
+}
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none; /* Começa oculta */
+}

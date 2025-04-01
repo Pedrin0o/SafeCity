@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCity - Mapa de Manutenção</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <!-- API do Google Maps (substitua API_KEY pela sua chave real) -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVbo8ONytrOfWBIMQzxst4QZewa_oCpHY&callback=initMap"></script>
+</head>
+<body>
+    <header>
+        <h1>SafeCity</h1>
+        <p>Monitore e reporte problemas na sua cidade</p>
+    </header>
+
+    <main>
+        <!-- Mapa -->
+        <section id="map"></section>
+
+        <!-- Formulário de Registro -->
+        <section id="report-form">
+            <h2>Reportar um Problema</h2>
+            <form id="form">
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" required>
+                
+                <label for="category">Categoria:</label>
+                <select id="category">
+                    <option>Buraco na rua</option>
+                    <option>Iluminação pública</option>
+                    <option>Vazamento de água</option>
+                </select>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+
+        <!-- Lista de Ocorrências -->
+        <section id="occurrences">
+            <h2>Ocorrências Recentes</h2>
+            <ul id="occurrences-list"></ul>
+        </section>
+    </main>
+
+</body>
+</html>

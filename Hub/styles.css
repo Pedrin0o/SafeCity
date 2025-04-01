@@ -1,0 +1,63 @@
+/* Centraliza o conteúdo na tela */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Estiliza a logo */
+img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Estiliza o título */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Container dos botões */
+.button-container {
+    display: flex;
+    gap: 20px;
+    perspective: 500px; /* Adiciona profundidade ao efeito 3D */
+}
+
+/* Estiliza os botões */
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 120px;
+}
+
+/* Botão de Login */
+.btn-login {
+    background-color: #007bff;
+    color: white;
+    transform: rotateY(-10deg); /* Inclinação para a esquerda */
+}
+
+/* Botão de Cadastro */
+.btn-cadastro {
+    background-color: #007bff;
+    color: white;
+    transform: rotateY(10deg); /* Inclinação para a direita */
+}
+
+/* Efeito ao passar o mouse */
+button:hover {
+    transform: rotateY(0deg) scale(1.05); /* Retorna ao normal e aumenta levemente */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para realce */
+}

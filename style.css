@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background: #d63031;
+    color: white;
+    padding: 20px;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+#report-form, #occurrences {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 400px;
+    display: inline-block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select, button {
+    margin-top: 10px;
+    padding: 10px;
+}

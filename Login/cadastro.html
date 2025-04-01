@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - SafeCity</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>
+            <img src="../Hub/Logo2.png" alt="Logo SafeCity" class="logo">
+            Cadastro
+        </h2>
+        <form id="registrationForm" action="#" onsubmit="return handleFormSubmit(event)">
+
+            <!-- Seleção de papel -->
+            <div class="role-selection">
+                <label for="role">Selecione seu papel:</label>
+                <select id="role" name="role" required onchange="toggleAdminId()">
+                    <option value="morador">Morador</option>
+                    <option value="administrador">Administrador</option>
+                </select>
+            </div>
+
+            <!-- Data de nascimento -->
+            <input type="date" id="dob" name="dob" placeholder="Data de Nascimento" required onblur="validateDOB()">
+            <p id="dobError" class="error-message">Não aceitamos menores de 7 anos, nem datas de nascimento que não existem ainda. Por favor, coloque uma data válida!</p>
+
+            <!-- Email -->
+            <input type="email" id="email" name="email" placeholder="Email" required onblur="validateEmail()">
+            <p id="emailError" class="error-message">Por favor, insira um e-mail válido!</p>
+
+            <!-- Senha -->
+            <input type="password" id="password" name="password" placeholder="Senha" required onblur="validatePassword()">
+            <p id="passwordError" class="error-message">A senha deve conter pelo menos 2 letras e 2 números!</p>
+
+            <!-- Confirmação de Senha -->
+            <input type="password" id="confirmPassword" placeholder="Confirmar Senha" required>
+
+            <input type="text" id="cpf" name="cpf" placeholder="CPF" maxlength="14" required>
+
+            <!-- Campo ID para Administradores -->
+            <div class="admin-id" id="admin-id" style="display: none;">
+                <input type="text" id="adminId" name="adminId" placeholder="ID do Administrador">
+            </div>
+
+            <button class="btn-entrar" type="submit">Confirmar Cadastro</button>
+        </form>
+
+        <p class="texto-cadastro">Já tem uma conta? <a href="login.html">Faça Login</a></p>
+    </div>
+
+    <script src="cadastro.js"></script> <!-- Importando o arquivo JS -->
+
+    <script>
+    // Função para enviar os dados de cadastro e redirecionar para a página de verificação
+    function handleFormSubmit(event) {
+        event.preventDefault();  // Evita o envio do formulário padrão
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const role = document.getElementById("role").value;
+        const cpf = document.getElementById("cpf").value;
+
+        // Verificar se as senhas coincidem
+        if (password !== confirmPassword) {
+            alert("As senhas não coincidem!");
+            return;
+        }
+
+        // Enviar os dados para o servidor
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                role: role,
+                cpf: cpf,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === "Cadastro realizado com sucesso!") {
+                // Redirecionar para a página de verificação após o sucesso
+                window.location.href = '/Codigo/index.html';
+            } else {
+                alert('Erro ao cadastrar: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao enviar dados para o servidor:', error);
+            alert('Ocorreu um erro durante o cadastro. Tente novamente.');
+        });
+    }
+    </script>
+</body>
+</html>
